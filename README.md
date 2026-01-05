@@ -30,3 +30,11 @@ style: |
 <!-- Choix du sujet -->
 # Choix du sujet
 **gestion des films**
+
+---
+
+
+<!-- Contexte -->
+# Contexte
+![Scrum](imgs/2_tup.png)
+
