@@ -1,0 +1,34 @@
+%%{init: {'theme': 'default', 'flowchart': {'curve': 'linear'}}}%%
+classDiagram
+    class Film {
+        +id : int
+        +titre : string
+        +description : string
+        +image : string
+        +date : date
+        +created_at : timestamp
+        +updated_at : timestamp
+    }
+
+    class Categorie {
+        +id : int
+        +nom : string
+        +created_at : timestamp
+        +updated_at : timestamp
+    }
+
+    class User {
+        +id : int
+        +nom : string
+        +email : string
+        +mot_de_passe : string
+        +role : string
+        +created_at : timestamp
+        +updated_at : timestamp
+    }
+
+    %% Relations
+    Film "0..*" -- "0..*" Categorie : appartient à
+    User "1" -- "0..*" Film : crée
+    User "1" -- "0..*" Categorie : crée
+

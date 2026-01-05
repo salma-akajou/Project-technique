@@ -41,18 +41,6 @@ style: |
 
 <!-- Analyse technique -->
 # Analyse Technique
-**Fonctionnalités clés :**
-- Ajouter, modifier, supprimer et lister des films.  
-- Filtrer les films par catégorie et recherche par titre .
-- Accéder à la page d'acceuil.
-- Accéder à la page détail d’un film.  
-
- **Base de données :**
-- Tables principales : `films` et `categories`.  
-- `films` : id, titre, description, image, date,   
-- `categories` : id, nom,  
-
----
 
 **Technologies à utiliser :**
 
