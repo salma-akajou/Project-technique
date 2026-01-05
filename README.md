@@ -33,8 +33,49 @@ style: |
 
 ---
 
-
 <!-- Contexte -->
 # Contexte
-![Scrum](imgs/2_tup.png)
+![2TUP](imgs/2_tup.png)
+
+---
+
+<!-- Analyse technique -->
+# Analyse Technique
+**Fonctionnalités clés :**
+- Ajouter, modifier, supprimer et lister des films.  
+- Filtrer les films par catégorie et recherche par titre .
+- Accéder à la page d'acceuil.
+- Accéder à la page détail d’un film.  
+
+ **Base de données :**
+- Tables principales : `films` et `categories`.  
+- `films` : id, titre, description, image, date,   
+- `categories` : id, nom,  
+
+---
+
+**Technologies à utiliser :**
+
+1- Base de données : MySQL,
+2- Framework : Laravel,
+3- Architecture n-tiers : Services,
+4- Architecture : MVC,
+5- Moteur de vues : Blades,
+6- Ajax,
+7- Upload images,
+8- Laravel Multilangues,
+9- Vite,
+10- Preline UI library
+11- Lucide Library
+12- Css tailwind
+
+---
+
+<!-- Fonctionnalités -->
+# Fonctionnalités 
+![2TUP](imgs/diagram_use_cases.png)
+
+---
+
+
 
