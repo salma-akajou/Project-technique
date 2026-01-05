@@ -71,3 +71,7 @@ style: |
 
 ---
 
+<!-- Sujet de Live coding -->
+# Sujet de Live coding
+- ajouter avec ajax (pop-up model)
+- recherche avec ajax 
