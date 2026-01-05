@@ -73,5 +73,5 @@ style: |
 
 <!-- Sujet de Live coding -->
 # Sujet de Live coding
-- ajouter avec ajax (pop-up model)
-- recherche avec ajax 
+- Un bouton “Ajouter” qui ouvre une modale pour créer un nouvel élément.
+- Une barre de recherche filtrant des éléments par titre.
