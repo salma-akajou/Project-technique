@@ -61,9 +61,13 @@ style: |
 
 <!-- Fonctionnalités -->
 # Fonctionnalités 
-![2TUP](imgs/diagram_use_cases.png)
+![diagram use case](imgs/diagram_use_cases.png)
 
 ---
 
+<!-- Fonctionnalités -->
+# Fonctionnalités 
+![diagram class](imgs/diagram_class.png)
 
+---
 
