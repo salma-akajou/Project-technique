@@ -44,18 +44,18 @@ style: |
 
 **Technologies à utiliser :**
 
-1- Base de données : MySQL,
-2- Framework : Laravel,
-3- Architecture n-tiers : Services,
-4- Architecture : MVC,
-5- Moteur de vues : Blades,
-6- Ajax,
-7- Upload images,
-8- Laravel Multilangues,
-9- Vite,
-10- Preline UI library
-11- Lucide Library
-12- Css tailwind
+1. **Base de données** : MySQL,
+2. **Framework** : Laravel,
+3. **Architecture n-tiers** : Services,
+4. **Architecture** : MVC,
+5. **Moteur de vues** : Blades,
+6. **Ajax**,
+7. **Upload images**,
+8. **Laravel Multilangue**s,
+9. **Vite**,
+10. **Preline UI library**
+11. **Lucide Library**
+12. **Css tailwind**
 
 ---
 
