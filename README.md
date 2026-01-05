@@ -65,8 +65,8 @@ style: |
 
 ---
 
-<!-- Fonctionnalités -->
-# Fonctionnalités 
+<!-- Conception -->
+# Conception
 ![diagram class](imgs/diagram_class.png)
 
 ---
