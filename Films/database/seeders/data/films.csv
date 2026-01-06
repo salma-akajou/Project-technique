@@ -1,3 +1,3 @@
-titre,description,directeur,image,user_email
-Inception,Film de science-fiction,Christopher Nolan,films/inception.jpg,admin@test.com
-Titanic,Film dramatique,James Cameron,films/titanic.jpg,admin@test.com
+titre,description,directeur,image,user_email,categories
+Inception,Film de science-fiction,Christopher Nolan,films/inception.jpg,admin@test.com,Science-fiction|Action
+Titanic,Film dramatique,James Cameron,films/titanic.jpg,admin@test.com,Drame
