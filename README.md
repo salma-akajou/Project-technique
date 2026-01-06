@@ -40,7 +40,7 @@ style: |
 ---
 
 <!-- Analyse technique -->
-# Analyse Technique
+# Besoin - Analyse Technique
 
 **Technologies à utiliser :**
 
@@ -60,7 +60,7 @@ style: |
 ---
 
 <!-- Fonctionnalités -->
-# Fonctionnalités 
+# Analyse - Fonctionnalités 
 ![diagram use case](imgs/diagram_use_cases.png)
 
 ---
