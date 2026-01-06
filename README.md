@@ -27,6 +27,12 @@ style: |
 
 ---
 
+<!-- Waterfall -->
+# Waterfall
+![Waterfall](imgs/Waterfall.png)
+
+---
+
 <!-- Choix du sujet -->
 # Choix du sujet
 **gestion des films**
@@ -40,7 +46,7 @@ style: |
 ---
 
 <!-- Analyse technique -->
-# Besoin - Analyse Technique
+# Exigences - Analyse Technique
 
 **Technologies à utiliser :**
 
