@@ -29,6 +29,7 @@ class FilmSeeder extends Seeder
                 'titre' => $data['titre'],
                 'description' => $data['description'],
                 'directeur' => $data['directeur'],
+                'image' => $data['image'],
                 'user_id' => $user->id
             ]);
 
