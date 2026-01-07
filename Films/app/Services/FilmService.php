@@ -14,11 +14,11 @@ class FilmService
         //filtrer par categories
         if(!empty($filters['categorie_id'])){
             $query->whereHas('categories', function($q) use ($filters){
-                $q->where('categorie_id', $filters['categorie_id']);
+                $q->where('categories.id', $filters['categorie_id']);
             });
         }
         //pagination
-        return $query->paginate(5);
+        return $query->paginate(6);
     }
 
     public function create(array $data){
