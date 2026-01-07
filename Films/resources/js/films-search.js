@@ -1,4 +1,5 @@
 import axios from "axios";
+import { createIcons, icons } from 'lucide';
 
 const searchInput = document.getElementById("searchInput");
 const categorieSelect = document.getElementById("categorieSelect");
@@ -11,6 +12,7 @@ function fetchFilms() {
     axios.get("/", { params: { search, categorie_id }, headers: { 'X-Requested-With': 'XMLHttpRequest' } })
         .then(response => {
             filmsContainer.innerHTML = response.data;
+            createIcons({ icons }); // Re-init icons for new content
         })
         .catch(error => console.error(error));
 }
