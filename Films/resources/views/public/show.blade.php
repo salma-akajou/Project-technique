@@ -52,7 +52,7 @@
                             </span>
                             <div>
                                 <p class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ $film->directeur }}</p>
-                                <p class="text-xs text-gray-500">{{ __('messages.directeur') }}</p>
+                                <p class="text-xs text-gray-500">{{ __('messages.director') }}</p>
                             </div>
                         </div>
                     </div>

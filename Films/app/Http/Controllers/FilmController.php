@@ -25,9 +25,8 @@ class FilmController extends Controller
         $films = $this->filmService->getAll($filters); 
         $categories = $this->categorieService->getAll();
 
-        
         if ($request->ajax()) {
-            return view('admin.partials.films-table', compact('films'))->render();
+            return view('partials.films-table', compact('films'))->render();
         }
 
         return view('admin.index', compact('films', 'categories'));
@@ -50,6 +49,7 @@ class FilmController extends Controller
             'categories.*' => 'exists:categories,id',
         ]);
 
+        $validated['user_id'] = 1;
         $this->filmService->create($validated);
 
         return redirect()->route('films.index')
@@ -58,6 +58,7 @@ class FilmController extends Controller
 
     public function edit(Film $film)
     {
+
         $categories = $this->categorieService->getAll();
         return view('admin.edit', compact('film', 'categories'));
     }

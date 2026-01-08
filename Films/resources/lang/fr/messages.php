@@ -1,34 +1,30 @@
 <?php
 
 return [
-    // Messages de succès
-    'film_created' => 'Film créé avec succès.',
-    'film_updated' => 'Film modifié avec succès.',
-    'film_deleted' => 'Film supprimé avec succès.',
-
-    // Labels / placeholders / Titres
-    'titre' => 'Titre',
-    'description' => 'Description',
-    'directeur' => 'Directeur',
-    'categorie' => 'Catégorie',
-    'categories' => 'Catégories',
-    'image' => 'Image',
-    'actions' => 'Actions',
-    'search_title' => 'Rechercher par titre...',
-    'films_list' => 'Films',
-    'all_categories' => 'Toutes les catégories',
-    'no_results' => 'Aucun film trouvé.',
-    'details' => 'Détails',
-    'films_list' => 'Liste des films',
-
-
-    // Boutons
+    'admin_dashboard' => 'Tableau de bord Films',
     'add' => 'Ajouter',
-    'create' => 'Créer',
+    'add_film' => 'Ajouter un film',
+    'search_title' => 'Rechercher par titre...',
+    'all_categories' => 'Toutes les catégories',
+    'title' => 'Titre',
+    'category' => 'Catégorie',
+    'categories' => 'Catégories',
+    'director' => 'Directeur',
+    'action' => 'Action',
     'update' => 'Modifier',
     'delete' => 'Supprimer',
-    'details' => 'Voir détails',
-    'back_home' => 'Retour à l\'accueil',
+    'no_films_found' => 'Aucun film trouvé',
+    'confirm_delete' => 'Êtes-vous sûr ?',
+    'description' => 'Description',
+    'image' => 'Image',
     'cancel' => 'Annuler',
-
+    'save' => 'Enregistrer',
+    'film_created' => 'Film ajouté avec succès',
+    'film_updated' => 'Film modifié avec succès',
+    'film_deleted' => 'Film supprimé avec succès',
+    'discover_cinema' => 'Découvrez le Cinéma',
+    'explore_collection' => 'Explorez notre vaste collection de films, filtrée par vos catégories préférées.',
+    'details' => 'Détails',
+    'no_results' => 'Aucun résultat trouvé',
+    'back_home' => 'Retour à l\'accueil',
 ];

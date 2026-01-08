@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Films App</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,10 +23,6 @@
                 <a class="flex-none text-xl font-semibold dark:text-white" href="{{ route('home') }}">Films App</a>
                 <div class="flex items-center gap-5">
                     <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="{{ route('home') }}" aria-current="page">Home</a>
-                    <!-- Admin Dashboard Button -->
-                    <a href="{{ route('films.index') }}" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                        Dashboard Admin
-                    </a>
                 </div>
             </div>
         </nav>
@@ -45,5 +42,6 @@
              // We will handle that in the specific ajax scripts.
         });
     </script>
+    @yield('scripts')
 </body>
 </html>
