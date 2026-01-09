@@ -18,7 +18,7 @@ class FilmService
             });
         }
         //pagination
-        return $query->paginate(6);
+        return $query->paginate(5);
     }
 
     public function create(array $data){

@@ -32,6 +32,15 @@ class FilmController extends Controller
         return view('admin.index', compact('films', 'categories'));
     }
 
+    public function dashboard()
+    {
+        $totalFilms = Film::count();
+        $recentFilms = Film::latest()->take(5)->get();
+        $totalCategories = \App\Models\Categorie::count();
+        
+        return view('admin.dashboard', compact('totalFilms', 'recentFilms', 'totalCategories'));
+    }
+
     public function create()
     {
         $categories = $this->categorieService->getAll();
@@ -49,7 +58,7 @@ class FilmController extends Controller
             'categories.*' => 'exists:categories,id',
         ]);
 
-        $validated['user_id'] = 1;
+        $validated['user_id'] = auth()->id() ?? 1;
         $this->filmService->create($validated);
 
         return redirect()->route('films.index')
@@ -58,8 +67,15 @@ class FilmController extends Controller
 
     public function edit(Film $film)
     {
-
         $categories = $this->categorieService->getAll();
+        
+        if (request()->ajax()) {
+            return response()->json([
+                'film' => $film,
+                'categories' => $film->categories->pluck('id')
+            ]);
+        }
+        
         return view('admin.edit', compact('film', 'categories'));
     }
 

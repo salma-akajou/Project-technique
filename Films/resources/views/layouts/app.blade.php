@@ -1,47 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Films App</title>
-    <!-- Google Fonts -->
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-slate-900 dark:text-white">
-    <!-- Header -->
-    <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-4 dark:bg-slate-900 dark:border-gray-700">
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-4 shadow-sm">
         <nav class="max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
             <div class="relative flex items-center justify-between">
-                <a class="flex-none text-xl font-semibold dark:text-white" href="{{ route('home') }}">Films App</a>
+                <a class="text-2xl font-black text-blue-600 tracking-tighter" href="{{ route('home') }}">
+                    FILMS
+                </a>
                 <div class="flex items-center gap-5">
-                    <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="{{ route('home') }}" aria-current="page">Home</a>
+                    @if(!Request::is('admin*'))
+                        <a class="font-medium text-gray-600 hover:text-blue-600" href="{{ route('home') }}">Home</a>
+                        <a href="{{ route('admin.dashboard') }}" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 transition-all">
+                            {{ __('messages.admin_dashboard') }}
+                        </a>
+                    @endif
                 </div>
             </div>
         </nav>
     </header>
 
-    <main id="content" class="min-h-screen">
-        @yield('content')
-    </main>
+    <div class="flex-grow flex flex-col md:flex-row max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
+        @if(Request::is('admin*'))
+        <aside class="w-full md:w-64 py-10 md:pe-16 border-b md:border-b-0 md:border-e border-gray-200">
+            <nav class="space-y-1">
+                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-x-3.5 py-2 px-2.5 {{ Request::routeIs('admin.dashboard') ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-100 font-medium' }} text-sm rounded-lg">
+                    <i data-lucide="layout-dashboard" class="size-4"></i>
+                    {{ __('messages.dashboard') }}
+                </a>
+                <a href="{{ route('films.index') }}" class="flex items-center gap-x-3.5 py-2 px-2.5 {{ Request::routeIs('films.index') ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-100 font-medium' }} text-sm rounded-lg">
+                    <i data-lucide="film" class="size-4"></i>
+                    {{ __('messages.films') }}
+                </a>
+            </nav>
+        </aside>
+        @endif
 
-    <footer class="mt-auto py-6 w-full max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-700">
-        <p class="text-gray-500 text-sm text-center">© {{ date('Y') }} Films App. All rights reserved.</p>
+        <main class="flex-grow py-10 {{ Request::is('admin*') ? 'md:ps-12' : '' }}">
+            @if(session('success'))
+                <div class="mb-4">
+                    <div class="bg-teal-50 border-t-2 border-teal-500 rounded-lg p-4" role="alert">
+                        <div class="flex">
+                            <div class="ms-3">
+                                <p class="text-sm text-teal-800">{{ session('success') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @yield('content')
+        </main>
+    </div>
+
+    <footer class="mt-auto py-5 border-t border-gray-200 bg-white">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-gray-500 text-sm text-center">© {{ date('Y') }} Films. All rights reserved.</p>
+        </div>
     </footer>
-    <script>
-        // Re-init lucide icons on dynamic content changes if needed
-        document.addEventListener('DOMContentLoaded', () => {
-             // Lucide icons are inited in app.js, but if we have ajax we might need to re-init.
-             // We will handle that in the specific ajax scripts.
-        });
-    </script>
+
     @yield('scripts')
 </body>
 </html>

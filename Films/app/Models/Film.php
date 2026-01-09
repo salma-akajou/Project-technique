@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Categorie;
 use App\Models\User;
 
 class Film extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'titre', 'description', 'directeur', 'image', 'user_id'
     ];

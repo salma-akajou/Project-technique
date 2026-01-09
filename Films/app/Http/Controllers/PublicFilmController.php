@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Film;
 use Illuminate\Http\Request;
 use App\Services\FilmService;
 use App\Services\CategorieService;
@@ -20,20 +21,12 @@ class PublicFilmController extends Controller
 
     public function home(Request $request)
     {
-        $filters = $request->only(['search', 'categorie_id']);
-        $films = $this->filmService->getAll($filters);
-        $categories = $this->categorieService->getAll();
-
-        if ($request->ajax()) {
-            return view('partials.films-cards', compact('films'))->render();
-        }
-
-        return view('public.home', compact('films', 'categories'));
+        $films = $this->filmService->getAll();
+        return view('public.home', compact('films'));
     }
 
-    public function show($id)
+    public function show(Film $film)
     {
-        $film = $this->filmService->getAll()->find($id); 
         return view('public.show', compact('film'));
     }
 }
