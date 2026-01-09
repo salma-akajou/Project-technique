@@ -1,5 +1,6 @@
 <?php
 
+
 return [
     'admin_dashboard' => 'Films Dashboard',
     'add' => 'Add',

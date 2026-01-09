@@ -19,7 +19,6 @@
                 method="POST" enctype="multipart/form-data" class="p-6 space-y-4">
                 @csrf
                 <div id="methodField"></div>
-                
                 <div>
                     <label class="block text-sm font-semibold mb-1.5">{{ __('messages.title') }}</label>
                     <input type="text" name="titre" id="titre" required class="py-2.5 px-4 block w-full border border-slate-500 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">

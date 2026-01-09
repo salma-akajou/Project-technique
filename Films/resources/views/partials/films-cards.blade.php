@@ -9,6 +9,7 @@
             </div>
         @endif
         
+        
         <div class="absolute top-3 right-3 flex gap-1">
             @foreach($film->categories->take(2) as $cat)
                 <span class="py-1 px-2.5 bg-white/90 backdrop-blur rounded-full text-[10px] font-bold text-blue-600 uppercase tracking-wider">

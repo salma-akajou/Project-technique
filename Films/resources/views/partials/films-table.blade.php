@@ -8,6 +8,7 @@
                 <th scope="col" class="px-6 py-3 text-end text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('messages.action') }}</th>
             </tr>
         </thead>
+        
         <tbody class="divide-y divide-gray-200">
             @foreach($films as $film)
             <tr class="hover:bg-gray-50 transition-colors">

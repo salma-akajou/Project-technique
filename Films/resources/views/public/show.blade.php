@@ -18,7 +18,6 @@
                     </div>
                 @endif
             </div>
-
             <div class="lg:w-3/5 p-8 lg:p-12">
                 <div class="flex gap-2 mb-4">
                     @foreach($film->categories as $categorie)

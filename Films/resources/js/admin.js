@@ -82,7 +82,6 @@ window.openModal = function (mode = 'create', filmId = null) {
         modalContent.classList.add('opacity-100', 'scale-100');
     }, 10);
 };
-
 window.editFilm = function (id) {
     window.openModal('edit', id);
 };

@@ -1,5 +1,6 @@
 <?php
 
+
 return [
     'admin_dashboard' => 'Tableau de bord Films',
     'add' => 'Ajouter',

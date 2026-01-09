@@ -18,7 +18,6 @@ class PublicFilmController extends Controller
         $this->categorieService = $categorieService;
     }
 
-
     public function home(Request $request)
     {
         $films = $this->filmService->getAll();

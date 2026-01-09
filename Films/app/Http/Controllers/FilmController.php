@@ -17,7 +17,6 @@ class FilmController extends Controller
         $this->filmService = $filmService;
         $this->categorieService = $categorieService;
     }
-
     
     public function index(Request $request)
     {

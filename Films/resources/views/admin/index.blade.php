@@ -33,7 +33,6 @@
                 </select>
             </div>
         </div>
-
         <div id="filmsTableWrapper">
             @include('partials.films-table')
         </div>

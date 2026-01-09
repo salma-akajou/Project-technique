@@ -33,7 +33,6 @@ class FilmService
         if(!empty($data['categories'])){
             $film->categories()->sync($data['categories']);
         }
-
         return $film;
     }
 
