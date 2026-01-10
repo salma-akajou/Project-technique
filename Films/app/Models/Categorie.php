@@ -8,6 +8,7 @@ use App\Models\Film;
 
 class Categorie extends Model
 {
+    
     protected $fillable= [ 'nom' ];
 
     public function films(){

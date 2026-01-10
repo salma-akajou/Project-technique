@@ -26,7 +26,6 @@ class FilmService
         if(!empty($data['image'])){
             $data['image']= $data['image']->store('films', 'public');
         }
-
         $film= Film::create($data);
 
         //associer les categories

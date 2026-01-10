@@ -9,7 +9,6 @@ use App\Models\User;
 
 class Film extends Model
 {
-    use HasFactory;
     protected $fillable = [
         'titre', 'description', 'directeur', 'image', 'user_id'
     ];
