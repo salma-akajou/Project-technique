@@ -31,6 +31,7 @@ class FilmController extends Controller
 
     public function store(Request $request)
     {
+        // 1. Validation
         $data = $request->validate([
             'titre' => 'required',
             'description' => 'required',
@@ -41,8 +42,18 @@ class FilmController extends Controller
 
         $data['user_id'] = 1; 
 
+        // 2. Création
         $this->filmService->create($data);
 
+        // 3. Réponse AJAX (pour ton live coding)
+        if ($request->ajax()) {
+            return response()->json([
+                'html' => view('films._table_body', ['films' => $this->filmService->getAll()])->render(),
+                'message' => __('messages.success')
+            ]);
+        }
+
+        // 4. Redirection classique
         return redirect()->route('films.index')->with('success', __('messages.success'));
     }
 }
