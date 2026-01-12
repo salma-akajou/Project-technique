@@ -37,13 +37,7 @@ class FilmServiceTest extends TestCase
 
     public function test_it_can_filter_films_by_category()
     {
-    $film = \App\Models\Film::first();
-    $categorie = \App\Models\Categorie::first();
-
-    $this->assertNotNull($film);
-    $this->assertNotNull($categorie);
-
-    $film->categories()->syncWithoutDetaching([$categorie->id]);
+    $categorie = \App\Models\Categorie::where('nom', 'Science-fiction')->first();
 
     $result = $this->service->getAll([
         'categorie_id' => $categorie->id
@@ -51,7 +45,6 @@ class FilmServiceTest extends TestCase
 
     $this->assertGreaterThan(0, $result->total());
     }
-
 
     public function test_it_can_update_a_film()
     {
