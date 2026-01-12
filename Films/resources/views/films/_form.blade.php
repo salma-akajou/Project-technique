@@ -1,4 +1,4 @@
-<form action="{{ route('films.store') }}" method="POST" enctype="multipart/form-data">
+<form id="filmForm" action="{{ route('films.store') }}" method="POST" enctype="multipart/form-data" data-success="{{ __('messages.success') }}">
     @csrf
     <h2>{{ __('messages.form_title') }}</h2>
     <div style="margin-bottom: 10px;">

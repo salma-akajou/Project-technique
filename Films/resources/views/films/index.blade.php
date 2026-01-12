@@ -4,9 +4,9 @@
 <div class="container">
     <h1>{{ __('messages.title') }}</h1>
 
-    @if(session('success'))
-        <div style="color: green; margin-bottom: 10px;">{{ session('success') }}</div>
-    @endif
+    <div id="success-msg" style="color: green; margin-bottom: 10px;">
+        {{ session('success') }}
+    </div>
 
     <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
         <input type="text" id="search" placeholder="{{ __('messages.search_placeholder') }}" style="padding: 10px; width: 300px;">
