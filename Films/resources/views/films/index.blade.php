@@ -1,39 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>{{ __('messages.title') }}</h1>
+<div class="container mx-auto p-4 space-y-6">
+    <h1 class="text-2xl font-bold text-gray-800">{{ __('films_views.title') }}</h1>
 
-    <div id="success-msg" style="color: green; margin-bottom: 10px;">
+    <div id="success-msg" class="text-green-600 font-medium h-6">
         {{ session('success') }}
     </div>
 
-    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-        <input type="text" id="search" placeholder="{{ __('messages.search_placeholder') }}" style="padding: 10px; width: 300px;">
-        <button id="openModal" style="padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer;">
-            {{ __('messages.add_film') }}
+    <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
+        <div class="max-w-sm w-full">
+            <input type="text" id="search" class="py-2.5 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" placeholder="{{ __('films_views.search_placeholder') }}">
+        </div>
+        
+        <button type="button" id="openModal" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-overlay="#hs-slide-down-animation-modal">
+            {{ __('films_views.add_film') }}
         </button>
     </div>
 
-    <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
-        <thead>
-            <tr style="background: #f4f4f4;">
-                <th>{{ __('messages.titre') }}</th>
-                <th>{{ __('messages.description') }}</th>
-                <th>{{ __('messages.directeur') }}</th>
-                <th>{{ __('messages.image') }}</th>
-                <th>{{ __('messages.categories') }}</th>
-            </tr>
-        </thead>
-        <tbody id="films-table">
-            @include('films._table_body')
-        </tbody>
-    </table>
-</div>
-
-<div id="filmModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); overflow-y: auto;">
-    <div style="background: white; width: 400px; margin: 50px auto; padding: 20px; border-radius: 5px;">
-        @include('films._form')
+    <div class="flex flex-col">
+        <div class="-m-1.5 overflow-x-auto">
+            <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="border border-gray-200 rounded-lg shadow-xs overflow-hidden dark:border-neutral-700 dark:shadow-gray-900">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                        <thead class="bg-gray-50 dark:bg-neutral-700">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">{{ __('films_attributes.titre') }}</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">{{ __('films_attributes.directeur') }}</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">{{ __('films_attributes.description') }}</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">{{ __('films_attributes.categories') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="films-table" class="divide-y divide-gray-200 dark:divide-neutral-700">
+                            @include('films._table_body')
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+@include('films._modal')
 @endsection

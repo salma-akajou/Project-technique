@@ -1,35 +1,33 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('filmModal');
-    const form = document.getElementById('filmForm');
-    const table = document.getElementById('films-table');
-    const search = document.getElementById('search');
-    const msg = document.getElementById('success-msg');
+const table = document.getElementById('films-table');
 
-    // 1. Modale
-    document.getElementById('openModal')?.addEventListener('click', () => modal.style.display = 'block');
-    document.getElementById('closeModal')?.addEventListener('click', () => modal.style.display = 'none');
+/**
+ * 1. Recherche AJAX
+ */
+document.getElementById('search')?.addEventListener('input', (e) => {
+    fetch(`/films?search=${e.target.value}`, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+        .then(res => res.text())
+        .then(html => table.innerHTML = html);
+});
 
-    // 2. Recherche AJAX
-    search?.addEventListener('input', () => {
-        fetch(`/films?search=${search.value}`, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
-            .then(r => r.text())
-            .then(html => table.innerHTML = html);
-    });
+/**
+ * 2. Ajout AJAX
+ */
+document.getElementById('filmForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
 
-    // 3. Formulaire AJAX
-    form?.addEventListener('submit', e => {
-        e.preventDefault();
-        fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'X-Requested-With': 'XMLHttpRequest' }
-        })
-            .then(r => r.text())
-            .then(html => {
-                table.innerHTML = html;
-                modal.style.display = 'none';
-                form.reset();
-                msg.innerText = form.dataset.success; 
-            });
-    });
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+        .then(res => res.text())
+        .then(html => {
+            table.innerHTML = html;
+            if (typeof HSOverlay !== 'undefined') {
+                HSOverlay.close('#hs-slide-down-animation-modal');
+            }
+            form.reset();
+            document.getElementById('success-msg').innerText = form.dataset.success;
+        });
 });

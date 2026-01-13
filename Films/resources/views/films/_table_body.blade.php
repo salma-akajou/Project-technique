@@ -1,17 +1,18 @@
 @foreach($films as $film)
 <tr>
-    <td>{{ $film->titre }}</td>
-    <td>{{ $film->description }}</td>
-    <td>{{ $film->directeur }}</td>
-    <td>
-        @if($film->image)
-            <img src="{{ asset('storage/' . $film->image) }}" width="50">
-        @endif
-    </td>
-    <td>
-        @foreach($film->categories as $cat)
-            <span style="background: #eee; padding: 2px 5px; margin-right: 5px; font-size: 12px;">{{ $cat->nom }}</span>
-        @endforeach
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ $film->titre }}</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $film->directeur }}</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{{ $film->description }}</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+        <div class="flex flex-wrap gap-1">
+            @forelse($film->categories as $cat)
+                <span class="inline-flex items-center gap-x-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-blue-100 text-blue-800">
+                    {{ $cat->nom }}
+                </span>
+            @empty
+                <span class="text-gray-400">Aucune</span>
+            @endforelse
+        </div>
     </td>
 </tr>
 @endforeach

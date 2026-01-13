@@ -47,6 +47,6 @@ class FilmController extends Controller
             return view('films._table_body', ['films' => $this->filmService->getAll()]);
         }
 
-        return redirect()->route('films.index')->with('success', __('messages.success'));
+        return redirect()->route('films.index')->with('success', __('films_views.success'));
     }
 }
