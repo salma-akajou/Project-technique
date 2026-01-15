@@ -47,7 +47,6 @@ class FilmService
             $film->categories()->sync($data['categories']);
         }
     }
-
     public function delete(Film $film){
         $film->delete();
     }
