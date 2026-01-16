@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Film;
 
 class FilmCategorieSeeder extends Seeder
 {
@@ -18,15 +19,14 @@ class FilmCategorieSeeder extends Seeder
             $header = fgetcsv($handle, 1000, ',');
 
             while (($row = fgetcsv($handle, 1000, ',')) !== false) {
+                if (count($header) !== count($row)) continue;
+                
                 $relation = array_combine($header, $row);
 
-                DB::table('film_categories')->insert([
-                    'id' => $relation['id'],
-                    'film_id' => $relation['film_id'],
-                    'categorie_id' => $relation['categorie_id'],
-                    'created_at' => $relation['created_at'],
-                    'updated_at' => $relation['updated_at']
-                ]);
+                $film = Film::find($relation['film_id']);
+                if ($film) {
+                    $film->categories()->syncWithoutDetaching([$relation['categorie_id']]);
+                }
             }
 
             fclose($handle);

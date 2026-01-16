@@ -1,6 +1,6 @@
 import './bootstrap';
 import 'preline';
-import { createIcons, icons } from 'lucide';µ
+import { createIcons, icons } from 'lucide';
 
 createIcons({
     icons

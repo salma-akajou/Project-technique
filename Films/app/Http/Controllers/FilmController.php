@@ -31,14 +31,6 @@ class FilmController extends Controller
         return view('admin.index', compact('films', 'categories'));
     }
 
-    public function dashboard()
-    {
-        $totalFilms = Film::count();
-        $recentFilms = Film::latest()->take(5)->get();
-        $totalCategories = \App\Models\Categorie::count();
-        
-        return view('admin.dashboard', compact('totalFilms', 'recentFilms', 'totalCategories'));
-    }
 
     public function create()
     {
@@ -61,7 +53,7 @@ class FilmController extends Controller
         $this->filmService->create($validated);
 
         return redirect()->route('films.index')
-            ->with('success', __('messages.film_created')); 
+            ->with('success', __('films.film_created')); 
     }
 
     public function edit(Film $film)
@@ -92,7 +84,7 @@ class FilmController extends Controller
         $this->filmService->update($film, $validated);
 
         return redirect()->route('films.index')
-            ->with('success', __('messages.film_updated')); 
+            ->with('success', __('films.film_updated')); 
     }
 
     public function destroy(Film $film)
@@ -100,6 +92,6 @@ class FilmController extends Controller
         $this->filmService->delete($film);
 
         return redirect()->route('films.index')
-            ->with('success', __('messages.film_deleted')); 
+            ->with('success', __('films.film_deleted')); 
     }
 }

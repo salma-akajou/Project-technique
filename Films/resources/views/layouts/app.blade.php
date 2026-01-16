@@ -23,8 +23,8 @@
                 <div class="flex items-center gap-5">
                     @if(!Request::is('admin*'))
                         <a class="font-medium text-gray-600 hover:text-blue-600" href="{{ route('home') }}">Home</a>
-                        <a href="{{ route('admin.dashboard') }}" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 transition-all">
-                            {{ __('messages.admin_dashboard') }}
+                        <a href="{{ route('films.index') }}" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 transition-all">
+                            {{ __('films.admin_dashboard') }}
                         </a>
                     @endif
                 </div>
@@ -32,23 +32,8 @@
         </nav>
     </header>
 
-    <div class="flex-grow flex flex-col md:flex-row max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
-        @if(Request::is('admin*'))
-        <aside class="w-full md:w-64 py-10 md:pe-16 border-b md:border-b-0 md:border-e border-gray-200">
-            <nav class="space-y-1">
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-x-3.5 py-2 px-2.5 {{ Request::routeIs('admin.dashboard') ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-100 font-medium' }} text-sm rounded-lg">
-                    <i data-lucide="layout-dashboard" class="size-4"></i>
-                    {{ __('messages.dashboard') }}
-                </a>
-                <a href="{{ route('films.index') }}" class="flex items-center gap-x-3.5 py-2 px-2.5 {{ Request::routeIs('films.index') ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-100 font-medium' }} text-sm rounded-lg">
-                    <i data-lucide="film" class="size-4"></i>
-                    {{ __('messages.films') }}
-                </a>
-            </nav>
-        </aside>
-        @endif
-
-        <main class="flex-grow py-10 {{ Request::is('admin*') ? 'md:ps-12' : '' }}">
+    <div class="flex-grow flex flex-col max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <main class="flex-grow py-10">
             @if(session('success'))
                 <div class="mb-4">
                     <div class="bg-teal-50 border-t-2 border-teal-500 rounded-lg p-4" role="alert">

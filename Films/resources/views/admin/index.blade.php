@@ -5,13 +5,13 @@
     <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
         <div>
             <h1 class="text-2xl font-bold text-gray-800">
-                {{ __('messages.admin_dashboard') }}
+                {{ __('films.films') }}
             </h1>
-            <p class="text-sm text-gray-500">{{ __('messages.admin_subtitle') }}</p>
+            <p class="text-sm text-gray-500">{{ __('films.admin_subtitle') }}</p>
         </div>
         <button onclick="openModal()" class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all">
             <i data-lucide="plus" class="size-4"></i>
-            {{ __('messages.add') }}
+            {{ __('films.add') }}
         </button>
     </div>
 
@@ -21,12 +21,12 @@
                 <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3">
                     <i data-lucide="search" class="size-4 text-gray-400"></i>
                 </div>
-                <input type="text" id="searchInput" class="py-2 px-3 ps-10 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 text-gray-800" placeholder="{{ __('messages.search_title') }}">
+                <input type="text" id="searchInput" class="py-2 px-3 ps-10 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 text-gray-800" placeholder="{{ __('films.search_title') }}">
             </div>
             
             <div class="w-full md:w-48">
                 <select id="categorySelect" class="py-2 px-3 pe-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 text-gray-800">
-                    <option value="">{{ __('messages.all_categories') }}</option>
+                    <option value="">{{ __('films.all_categories') }}</option>
                     @foreach($categories as $categorie)
                         <option value="{{ $categorie->id }}">{{ $categorie->nom }}</option>
                     @endforeach

@@ -2,10 +2,11 @@
     <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
             <tr>
-                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('messages.title') }}</th>
-                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('messages.director') }}</th>
-                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('messages.categories') }}</th>
-                <th scope="col" class="px-6 py-3 text-end text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('messages.action') }}</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.title') }}</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.director') }}</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.description') }}</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.categories') }}</th>
+                <th scope="col" class="px-6 py-3 text-end text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.action') }}</th>
             </tr>
         </thead>
         
@@ -26,6 +27,9 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                     {{ $film->directeur }}
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600 max-w-xs truncate" title="{{ $film->description }}">
+                    {{ \Illuminate\Support\Str::limit($film->description, 50) }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex gap-1 flex-wrap">
@@ -58,6 +62,6 @@
 
 @if($films->hasPages())
 <div class="px-6 py-4 border-t border-gray-200">
-    {{ $films->links() }}
+    {{ $films->links('partials.pagination') }}
 </div>
 @endif

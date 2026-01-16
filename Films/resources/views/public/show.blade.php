@@ -4,7 +4,7 @@
 <div class="max-w-4xl mx-auto">
     <a href="{{ route('home') }}" class="inline-flex items-center gap-x-2 text-sm text-gray-500 hover:text-blue-600 mb-6 transition-colors">
         <i data-lucide="arrow-left" class="size-4"></i>
-        {{ __('messages.back_home') }}
+        {{ __('films.back_home') }}
     </a>
 
     <div class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-sm">
@@ -33,7 +33,7 @@
 
                 <div class="space-y-6">
                     <div>
-                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">{{ __('messages.director') }}</h3>
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">{{ __('films.director') }}</h3>
                         <p class="text-gray-700 font-medium flex items-center gap-x-2">
                              <i data-lucide="user" class="size-4 text-blue-600"></i>
                              {{ $film->directeur }}
@@ -41,7 +41,7 @@
                     </div>
 
                     <div>
-                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">{{ __('messages.description') }}</h3>
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">{{ __('films.description') }}</h3>
                         <p class="text-gray-600 leading-relaxed italic">
                             "{{ $film->description }}"
                         </p>

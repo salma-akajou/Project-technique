@@ -1,3 +1,11 @@
 titre,description,directeur,image,user_email,categories
 Inception,Film de science-fiction,Christopher Nolan,films/inception.jpg,admin@test.com,Science-fiction|Action
-Gladiator,Film historique et d'action,Ridley Scott,films/gladiator.jpg,admin@test.com,Action
+Gladiator,"Film historique et d'action",Ridley Scott,films/gladiator.jpg,admin@test.com,Action
+"The Dark Knight","Le Chevalier Noir protège Gotham City de la menace du Joker.",Christopher Nolan,films/dark_knight.jpg,admin@test.com,Action|Drame
+"Pulp Fiction","Les vies de deux tueurs à gages, d'un boxeur, d'un gangster et de sa femme s'entrecroisent.",Quentin Tarantino,films/pulp_fiction.jpg,admin@test.com,Drame
+Interstellar,"Une équipe d'explorateurs voyage à travers un trou de ver dans l'espace pour assurer la survie de l'humanité.",Christopher Nolan,films/interstellar.jpg,admin@test.com,Science-fiction|Drame
+Parasite,"Une famille pauvre s'infiltre dans le quotidien d'une famille riche.",Bong Joon-ho,films/parasite.jpg,admin@test.com,Drame|Thriller
+The Matrix,Un pirate informatique découvre que la réalité est une simulation.,Lana Wachowski,films/matrix.jpg,admin@test.com,Science-fiction|Action
+Spirit Away,"Une jeune fille se retrouve dans un monde dirigé par des esprits et des sorcières.",Hayao Miyazaki,films/spirited_away.jpg,admin@test.com,Animation|Aventure
+The Godfather,"L'histoire de la puissante famille mafieuse Corleone.",Francis Ford Coppola,films/godfather.jpg,admin@test.com,Drame
+Seven Samurai,"Des villageois engagent sept samouraïs pour les protéger des brigands.",Akira Kurosawa,films/seven_samurai.jpg,admin@test.com,Action|Drame

@@ -35,7 +35,7 @@
                 <span class="text-xs font-medium text-gray-600">{{ $film->directeur }}</span>
             </div>
             <div class="flex items-center text-blue-600 font-semibold text-sm">
-                {{ __('messages.details') }}
+                {{ __('films.details') }}
                 <i data-lucide="chevron-right" class="size-4 ms-1 group-hover:translate-x-1 transition-all"></i>
             </div>
         </div>

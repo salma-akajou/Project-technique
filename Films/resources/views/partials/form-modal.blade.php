@@ -5,7 +5,7 @@
         <div id="modalContent" class="bg-white rounded-2xl shadow-2xl w-full max-w-lg transform opacity-0 scale-95 transition-all duration-300">
             <div class="flex justify-between items-center p-6 border-b border-gray-100">
                 <h3 id="modalTitle" class="text-xl font-bold text-gray-800">
-                    {{ __('messages.add_film') }}
+                    {{ __('films.add_film') }}
                 </h3>
                 <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
                     <i data-lucide="x" class="size-5"></i>
@@ -14,28 +14,28 @@
 
             <form id="filmForm" action="{{ route('films.store') }}" 
                 data-store-url="{{ route('films.store') }}"
-                data-add-title="{{ __('messages.add_film') }}" 
-                data-edit-title="{{ __('messages.update') }}"
+                data-add-title="{{ __('films.add_film') }}" 
+                data-edit-title="{{ __('films.update') }}"
                 method="POST" enctype="multipart/form-data" class="p-6 space-y-4">
                 @csrf
                 <div id="methodField"></div>
                 <div>
-                    <label class="block text-sm font-semibold mb-1.5">{{ __('messages.title') }}</label>
+                    <label class="block text-sm font-semibold mb-1.5">{{ __('films.title') }}</label>
                     <input type="text" name="titre" id="titre" required class="py-2.5 px-4 block w-full border border-slate-500 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold mb-1.5">{{ __('messages.director') }}</label>
+                    <label class="block text-sm font-semibold mb-1.5">{{ __('films.director') }}</label>
                     <input type="text" name="directeur" id="directeur" required class="py-2.5 px-4 block w-full border border-slate-500 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold mb-1.5">{{ __('messages.description') }}</label>
+                    <label class="block text-sm font-semibold mb-1.5">{{ __('films.description') }}</label>
                     <textarea name="description" id="description" rows="3" class="py-2.5 px-4 block w-full border border-slate-500 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold mb-2">{{ __('messages.categories') }}</label>
+                    <label class="block text-sm font-semibold mb-2">{{ __('films.categories') }}</label>
                     <div class="grid grid-cols-2 gap-3 max-h-32 overflow-y-auto p-1">
                         @foreach($categories as $categorie)
                             @php
@@ -45,7 +45,7 @@
                             <label class="flex items-center gap-x-2 cursor-pointer group">
                                 <input type="checkbox" name="categories[]" value="{{ $categorie->id }}" id="cat_{{ $categorie->id }}" class="shrink-0 size-4 border border-slate-500 rounded text-blue-600 focus:ring-blue-500">
                                 <span class="text-sm text-gray-600 group-hover:text-blue-600 transition-colors">
-                                    {{ Lang::has('messages.'.$catKey) ? __('messages.'.$catKey) : $categorie->nom }}
+                                    {{ Lang::has('films.'.$catKey) ? __('films.'.$catKey) : $categorie->nom }}
                                 </span>
                             </label>
                         @endforeach
@@ -53,7 +53,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold mb-1.5">{{ __('messages.image') }}</label>
+                    <label class="block text-sm font-semibold mb-1.5">{{ __('films.image') }}</label>
                     <div id="imagePreviewContainer" class="hidden mb-3">
                         <img id="imagePreview" src="" class="size-20 object-cover rounded-lg border border-gray-200">
                     </div>
@@ -62,21 +62,21 @@
                             <i data-lucide="upload-cloud" class="mx-auto size-8 text-gray-400 group-hover:text-blue-500"></i>
                             <div class="flex text-sm text-gray-600">
                                 <label for="image" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none">
-                                    <span>{{ __('messages.upload_file') }}</span>
+                                    <span>{{ __('films.upload_file') }}</span>
                                     <input id="image" name="image" type="file" class="sr-only">
                                 </label>
                             </div>
-                            <p class="text-xs text-gray-500">{{ __('messages.image_size') }}</p>
+                            <p class="text-xs text-gray-500">{{ __('films.image_size') }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex justify-end gap-x-3 pt-6 border-t border-gray-100 mt-6">
                     <button type="button" onclick="closeModal()" class="py-2.5 px-6 text-sm font-semibold rounded-xl border border-gray-200 bg-white text-gray-800 hover:bg-gray-50 transition-colors">
-                        {{ __('messages.cancel') }}
+                        {{ __('films.cancel') }}
                     </button>
                     <button type="submit" class="py-2.5 px-6 text-sm font-semibold rounded-xl border border-transparent bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all">
-                        {{ __('messages.save') }}
+                        {{ __('films.save') }}
                     </button>
                 </div>
             </form>

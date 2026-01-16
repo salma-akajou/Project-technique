@@ -6,9 +6,13 @@ class FilmService
 {
     public function getAll(array $filters = []){
         $query= Film::query();
-        //rechercher par titre
-        if(!empty($filters['search'])){
-            $query->where('titre','like', '%' .$filters['search'] . '%');
+        //rechercher par titre, description ou directeur
+        if (!empty($filters['search'])) {
+            $query->where(function($q) use ($filters) {
+                $q->where('titre','like', '%' .$filters['search'] . '%')
+                  ->orWhere('description','like', '%' .$filters['search'] . '%')
+                  ->orWhere('directeur','like', '%' .$filters['search'] . '%');
+            });
         }
         
         //filtrer par categories
@@ -18,7 +22,7 @@ class FilmService
             });
         }
         //pagination
-        return $query->paginate(5);
+        return $query->paginate(6);
     }
 
     public function create(array $data){
