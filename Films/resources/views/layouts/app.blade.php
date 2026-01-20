@@ -22,9 +22,9 @@
                 </a>
                 <div class="flex items-center gap-5">
                     @if(!Request::is('admin*'))
-                        <a class="font-medium text-gray-600 hover:text-blue-600" href="{{ route('home') }}">Home</a>
+                        <a class="font-medium text-gray-600 hover:text-blue-600" href="{{ route('home') }}">{{ __('films.menu.home') }}</a>
                         <a href="{{ route('films.index') }}" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 transition-all">
-                            {{ __('films.admin_dashboard') }}
+                            {{ __('films.titles.admin_dashboard') }}
                         </a>
                     @endif
                 </div>

@@ -2,11 +2,11 @@
     <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
             <tr>
-                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.title') }}</th>
-                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.director') }}</th>
-                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.description') }}</th>
-                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.categories') }}</th>
-                <th scope="col" class="px-6 py-3 text-end text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.action') }}</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.fields.title') }}</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.fields.director') }}</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.fields.description') }}</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.fields.categories') }}</th>
+                <th scope="col" class="px-6 py-3 text-end text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ __('films.fields.action') }}</th>
             </tr>
         </thead>
         
@@ -45,7 +45,7 @@
                         <button onclick="editFilm({{ $film->id }})" class="size-8 inline-flex items-center justify-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 transition-all">
                             <i data-lucide="edit-3" class="size-4 text-blue-600"></i>
                         </button>
-                        <form action="{{ route('films.destroy', $film->id) }}" method="POST" class="inline" onsubmit="return confirm('Etes-vous sûr ?')">
+                        <form action="{{ route('films.destroy', $film->id) }}" method="POST" class="inline" onsubmit="return confirm('{{ __('films.messages.confirm_delete') }}')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="size-8 inline-flex items-center justify-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 transition-all">
