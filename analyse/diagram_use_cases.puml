@@ -1,4 +1,4 @@
-@startuml
+@startuml UseCaseDiagram
 left to right direction
 actor "Visiteur" as Visiteur
 actor "Admin" as Admin
