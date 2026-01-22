@@ -2,7 +2,7 @@
 
 return [
     'titles' => [
-        'admin_dashboard' => 'Films Dashboard',
+        'admin_dashboard' => 'administration of Films',
         'admin_subtitle' => 'Add, edit or delete films.',
         'discover_cinema' => 'Discover Cinema',
         'explore_collection' => 'Explore our vast collection of films, filtered by your favorite categories.',

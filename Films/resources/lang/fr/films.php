@@ -2,7 +2,7 @@
 
 return [
     'titles' => [
-        'admin_dashboard' => 'Tableau de bord Films',
+        'admin_dashboard' => 'Administration des Films',
         'admin_subtitle' => 'Ajouter, modifier ou supprimer des films.',
         'discover_cinema' => 'Découvrez le Cinéma',
         'explore_collection' => 'Explorez notre vaste collection de films, filtrée par vos catégories préférées.',
