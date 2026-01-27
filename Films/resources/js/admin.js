@@ -48,6 +48,8 @@ window.openModal = (mode = 'create', id = null) => {
     document.getElementById('modalTitle').innerText = id ? filmForm.dataset.editTitle : filmForm.dataset.addTitle;
     filmForm.action = id ? `/admin/films/${id}` : filmForm.dataset.storeUrl;
 
+    const categoriesSelect = document.getElementById('categories-select');
+
     if (id) {
         axios.get(`/admin/films/${id}/edit`, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
             .then(({ data }) => {
@@ -58,14 +60,33 @@ window.openModal = (mode = 'create', id = null) => {
                     imagePreview.src = `/storage/${data.film.image}`;
                     imagePreviewContainer.classList.remove('hidden');
                 }
-                filmForm.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-                    cb.checked = data.categories.includes(parseInt(cb.value));
-                });
+
+                if (categoriesSelect && window.HSSelect) {
+                    const hsSelect = HSSelect.getInstance(categoriesSelect);
+                    if (hsSelect) {
+                        hsSelect.setValue(data.categories.map(cat => cat.toString()));
+                    }
+                } else if (categoriesSelect) {
+                    Array.from(categoriesSelect.options).forEach(opt => {
+                        opt.selected = data.categories.includes(parseInt(opt.value));
+                    });
+                }
             });
+    } else {
+        if (categoriesSelect && window.HSSelect) {
+            const hsSelect = HSSelect.getInstance(categoriesSelect);
+            if (hsSelect) hsSelect.setValue([]);
+        }
     }
 
     filmModal.classList.remove('hidden');
     modalBackdrop.classList.remove('hidden');
+
+    // Re-initialize Preline components after showing the modal
+    if (window.HSStaticMethods) {
+        window.HSStaticMethods.autoInit();
+    }
+
     setTimeout(() => {
         modalBackdrop.classList.remove('opacity-0');
         modalContent.classList.add('opacity-100', 'scale-100');
