@@ -1,27 +1,45 @@
-<div id="modalBackdrop" class="fixed inset-0 bg-gray-900/50 hidden z-50 transition-all backdrop-blur-sm opacity-0"></div>
+<div x-show="isOpen" 
+     x-cloak
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 bg-gray-900/50 z-50 backdrop-blur-sm"></div>
 
-<div id="filmModal" class="fixed inset-0 hidden z-[70] overflow-y-auto">
-    <div class="flex items-center justify-center min-h-screen p-4">
-        <div id="modalContent" class="bg-white rounded-2xl shadow-2xl w-full max-w-lg transform opacity-0 scale-95 transition-all duration-300">
+<div x-show="isOpen" 
+     x-cloak
+     class="fixed inset-0 z-[70] overflow-y-auto"
+     @keydown.escape.window="closeModal()">
+    <div class="flex items-center justify-center min-h-screen p-4" @click.self="closeModal()">
+        <div x-show="isOpen"
+             x-cloak
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 scale-100"
+             x-transition:leave-end="opacity-0 scale-95"
+             class="bg-white rounded-2xl shadow-2xl w-full max-w-lg transform transition-all duration-300">
             <div class="flex justify-between items-center p-6 border-b border-gray-100">
-                <h3 id="modalTitle" class="text-xl font-bold text-gray-800">
+                <h3 class="text-xl font-bold text-gray-800" x-text="editMode ? '{{ __('films.titles.edit_film') }}' : '{{ __('films.titles.add_film') }}'">
                     {{ __('films.titles.add_film') }}
                 </h3>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
+                <button @click="closeModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
                     <i data-lucide="x" class="size-5"></i>
                 </button>
             </div>
 
-            <form id="filmForm" action="{{ route('films.store') }}" 
-                data-store-url="{{ route('films.store') }}"
-                data-add-title="{{ __('films.titles.add_film') }}" 
-                data-edit-title="{{ __('films.titles.edit_film') }}"
-                method="POST" enctype="multipart/form-data" class="p-6 space-y-4">
+            <form :action="editMode ? `/admin/films/${filmId}` : '{{ route('films.store') }}'"
+                  method="POST" enctype="multipart/form-data" class="p-6 space-y-4">
                 @csrf
-                <div id="methodField"></div>
+                <template x-if="editMode">
+                    <input type="hidden" name="_method" value="PUT">
+                </template>
                 <div>
                     <label class="block text-sm font-semibold mb-1.5">{{ __('films.fields.title') }}</label>
-                    <input type="text" name="titre" id="titre" value="{{ old('titre') }}" class="py-2.5 px-4 block w-full border @error('titre') border-red-500 @else border-slate-500 @enderror rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input type="text" name="titre" x-model="film.titre" class="py-2.5 px-4 block w-full border @error('titre') border-red-500 @else border-slate-500 @enderror rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">
                     @error('titre')
                         <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                     @enderror
@@ -29,7 +47,7 @@
 
                 <div>
                     <label class="block text-sm font-semibold mb-1.5">{{ __('films.fields.director') }}</label>
-                    <input type="text" name="directeur" id="directeur" value="{{ old('directeur') }}" class="py-2.5 px-4 block w-full border @error('directeur') border-red-500 @else border-slate-500 @enderror rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input type="text" name="directeur" x-model="film.directeur" class="py-2.5 px-4 block w-full border @error('directeur') border-red-500 @else border-slate-500 @enderror rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">
                     @error('directeur')
                         <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                     @enderror
@@ -37,7 +55,7 @@
 
                 <div>
                     <label class="block text-sm font-semibold mb-1.5">{{ __('films.fields.description') }}</label>
-                    <textarea name="description" id="description" rows="3" class="py-2.5 px-4 block w-full border @error('description') border-red-500 @else border-slate-500 @enderror rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">{{ old('description') }}</textarea>
+                    <textarea name="description" x-model="film.description" rows="3" class="py-2.5 px-4 block w-full border @error('description') border-red-500 @else border-slate-500 @enderror rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
                     @error('description')
                         <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                     @enderror
@@ -45,7 +63,7 @@
 
                 <div>
                     <label class="block text-sm font-semibold mb-2">{{ __('films.fields.categories') }}</label>
-                    <select id="categories-select" name="categories[]" multiple="" data-hs-select='{
+                    <select id="categories-select" x-ref="categoriesSelect" name="categories[]" multiple="" data-hs-select='{
                         "placeholder": "",
                         "dropdownClasses": "mt-2 z-50 w-full max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
                         "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50",
@@ -74,8 +92,8 @@
 
                 <div>
                     <label class="block text-sm font-semibold mb-1.5">{{ __('films.fields.image') }}</label>
-                    <div id="imagePreviewContainer" class="hidden mb-3">
-                        <img id="imagePreview" src="" class="size-20 object-cover rounded-lg border border-gray-200">
+                    <div x-show="imagePreview" class="mb-3">
+                        <img :src="imagePreview" class="size-20 object-cover rounded-lg border border-gray-200">
                     </div>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl transition-colors hover:border-blue-500 group">
                         <div class="space-y-1 text-center">
@@ -83,7 +101,8 @@
                             <div class="flex text-sm text-gray-600">
                                 <label for="image" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none">
                                     <span>{{ __('films.buttons.upload_file') }}</span>
-                                    <input id="image" name="image" type="file" class="sr-only">
+                                    <input id="image" name="image" type="file" class="sr-only" 
+                                           @change="imagePreview = $event.target.files[0] ? URL.createObjectURL($event.target.files[0]) : null">
                                 </label>
                             </div>
                             <p class="text-xs text-gray-500">{{ __('films.fields.image_help') }}</p>
@@ -95,7 +114,7 @@
                 </div>
 
                 <div class="flex justify-end gap-x-3 pt-6 border-t border-gray-100 mt-6">
-                    <button type="button" onclick="closeModal()" class="py-2.5 px-6 text-sm font-semibold rounded-xl border border-gray-200 bg-white text-gray-800 hover:bg-gray-50 transition-colors">
+                    <button type="button" @click="closeModal()" class="py-2.5 px-6 text-sm font-semibold rounded-xl border border-gray-200 bg-white text-gray-800 hover:bg-gray-50 transition-colors">
                         {{ __('films.buttons.cancel') }}
                     </button>
                     <button type="submit" class="py-2.5 px-6 text-sm font-semibold rounded-xl border border-transparent bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all">

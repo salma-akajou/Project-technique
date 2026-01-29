@@ -42,10 +42,10 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                     <div class="flex justify-end gap-x-2">
-                        <button onclick="editFilm({{ $film->id }})" class="size-8 inline-flex items-center justify-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 transition-all">
+                        <button type="button" @click="openModal({{ $film->id }})" class="size-8 inline-flex items-center justify-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 transition-all">
                             <i data-lucide="edit-3" class="size-4 text-blue-600"></i>
                         </button>
-                        <form action="{{ route('films.destroy', $film->id) }}" method="POST" class="inline" onsubmit="return confirm('{{ __('films.messages.confirm_delete') }}')">
+                        <form action="{{ route('films.destroy', $film->id) }}" method="POST" class="inline" @submit.prevent="if(confirm('{{ __('films.messages.confirm_delete') }}')) $el.submit()">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="size-8 inline-flex items-center justify-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 transition-all">
