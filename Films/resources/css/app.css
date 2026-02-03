@@ -1,5 +1,15 @@
 @import 'tailwindcss';
 
+[x-cloak] {
+    display: none !important;
+}
+
+@variant hs-dropdown-open (&:is(.hs-dropdown-open, [data-hs-dropdown-open]));
+@variant hs-collapse-open (&:is(.hs-collapse-open, [data-hs-collapse-open]));
+@variant hs-overlay-open (&:is(.hs-overlay-open, [data-hs-overlay-open]));
+@variant hs-tab-active (&:is(.active, [data-hs-tab-active]));
+
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';

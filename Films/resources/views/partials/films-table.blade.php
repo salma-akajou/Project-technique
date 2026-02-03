@@ -45,6 +45,7 @@
                         <button type="button" @click="openModal({{ $film->id }})" class="size-8 inline-flex items-center justify-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 transition-all">
                             <i data-lucide="edit-3" class="size-4 text-blue-600"></i>
                         </button>
+                        @can('delete-film')
                         <form action="{{ route('films.destroy', $film->id) }}" method="POST" class="inline" @submit.prevent="if(confirm('{{ __('films.messages.confirm_delete') }}')) $el.submit()">
                             @csrf
                             @method('DELETE')
@@ -52,6 +53,7 @@
                                 <i data-lucide="trash-2" class="size-4 text-red-500"></i>
                             </button>
                         </form>
+                        @endcan
                     </div>
                 </td>
             </tr>

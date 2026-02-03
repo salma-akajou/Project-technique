@@ -75,6 +75,8 @@ class FilmController extends Controller
 
     public function destroy(Film $film)
     {
+        \Illuminate\Support\Facades\Gate::authorize('delete-film');
+        
         $this->filmService->delete($film);
 
         return redirect()->route('films.index')
