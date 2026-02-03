@@ -6,6 +6,12 @@ import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
 window.axios = axios;
+window.createIcons = createIcons;
+window.icons = icons;
+
+// --- Admin Component ---
+import adminComponent from './admin';
+Alpine.data('adminComponent', adminComponent);
 
 Alpine.start();
 
