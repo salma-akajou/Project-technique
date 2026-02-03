@@ -18,7 +18,6 @@ Route::delete('/admin/films/{film}', [FilmController::class, 'destroy'])->name('
 
 Auth::routes();
 
-// Redirect any leftover /home to the films index
 Route::get('/home', function() {
     return redirect()->route('films.index');
 })->name('home');
