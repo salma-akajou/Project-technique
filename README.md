@@ -71,6 +71,45 @@ style: |
 
 ---
 
+## Versions
+
+### Version 1
+
+- Public Side
+- Branch : public
+
+### Version 2
+
+- Admin Side
+- Branch : admin
+
+### Version 3
+
+- Authontification / Authorization (Gates)
+- Branch : gates
+
+### Version 4
+
+- SPA (Single Page Application) / AJAX - Alpine.js
+- Branch : spa
+
+### Version 5
+
+- Spatie / Authorization
+- Branch : spatie
+
+### Version 6
+
+- API
+- Branch : api
+
+### Version 7
+
+- Mobile App
+- Branch : mobile
+
+---
+
 <!-- Sujet de Live coding -->
 # Sujet de Live coding
 - Un bouton “Ajouter” qui ouvre une modale pour créer un nouvel élément.
