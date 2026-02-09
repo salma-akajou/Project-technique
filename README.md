@@ -27,6 +27,12 @@ style: |
 
 ---
 
+<!-- Waterfall -->
+# Waterfall
+![Waterfall](imgs/Waterfall.png)
+
+---
+
 <!-- Choix du sujet -->
 # Choix du sujet
 **gestion des films**
