@@ -28,7 +28,7 @@ style: |
 ---
 
 <!-- Waterfall -->
-# Waterfall
+# La méthode Waterfall
 ![Waterfall](imgs/Waterfall.png)
 
 ---
@@ -39,9 +39,17 @@ style: |
 
 ---
 
+## Exigences: Travail à faire
+
+### Développement de l'Application des films
+*   **Partie Publique:** Interface permettant aux visiteurs de consulter les films. Fonctionnalités : Recherche par titre, directeur, filtre par catégorie, pagination (6 éléments/page).
+*   **Partie Admin:** Tableau de bord sécurisé pour les opérations CRUD. Fonctionnalités : Modales pour ajout/édition, AJAX pour les mises à jour asynchrones.
+
+---
 
 <!-- Contexte -->
-# Contexte
+# Contexte : Projet de Fin de Formation
+*   **Projet de Fin de Formation:** Travail sur le projet de fin de formation, commençant par la branche technique.
 ![2TUP](imgs/2_tup.png)
 
 ---
@@ -57,12 +65,14 @@ style: |
 4. **Architecture** : MVC,
 5. **Moteur de vues** : Blades,
 6. **Ajax**,
-7. **Upload images**,
-8. **Laravel Multilangue**s,
-9. **Vite**,
-10. **Preline UI library**
-11. **Lucide Library**
-12. **Css tailwind**
+7. **Alpine.js:** Librairie JavaScript pour les interactions dynamiques.
+8. **Spatie:** Librairie pour la gestion des permissions et rôles.
+9. **Upload images**,
+10. **Laravel Multilangues**,
+11. **Vite**,
+12. **Preline UI library**
+13. **Lucide Library**
+14. **Css tailwind**
 
 ---
 
@@ -80,44 +90,58 @@ style: |
 
 ## Versions
 
-### Version 1
-
-- Public Side
-- Branch : public
-
-### Version 2
-
-- Admin Side
-- Branch : admin
-
-### Version 3
-
-- Authontification / Authorization (Gates)
-- Branch : gates
-
-### Version 4
-
-- SPA (Single Page Application) / AJAX - Alpine.js
-- Branch : spa
-
-### Version 5
-
-- Spatie / Authorization
-- Branch : spatie
-
-### Version 6
-
-- API
-- Branch : api
-
-### Version 7
-
-- Mobile App
-- Branch : mobile
+| Version | Description | Branche |
+| :--- | :--- | :--- |
+| **v1** | Public Side (Consultation, Recherche, Filtre) | `public` |
+| **v2** | Admin Side (CRUD, Modales) | `admin` |
+| **v3** | Authentification / Authorization (Gates) | `gates` |
+| **v4** | SPA / AJAX | `spa-ajax` |
+| **v5** | SPA / Alpine.js | `spa-alpine` |
+| **v6** | Spatie / Authorization | `spatie` |
+| **v7** | API | `api` |
+| **v8** | Mobile App | `mobile` |
 
 ---
 
 <!-- Sujet de Live coding -->
 # Sujet de Live coding
-- Un bouton “Ajouter” qui ouvre une modale pour créer un nouvel élément.
-- Une barre de recherche filtrant des éléments par titre.
+## **v1** Public Side - Live Coding
+* Creation du portfolio personnel
+
+---
+
+## **v2** Admin Side - Live Coding
+* Gestion des articles (CRUD)
+
+---
+
+## **v3** Authentification / Authorization - Live Coding
+* 
+
+---
+
+## **v4** SPA / AJAX - Live Coding
+* Un bouton “Ajouter” qui ouvre une modale pour créer un nouvel élément. <br>
+* Une barre de recherche filtrant des éléments par titre.
+
+---
+
+## **v5** SPA / Alpine.js - Live Coding
+* 
+
+---
+
+## **v6** Spatie / Authorization - Live Coding
+* 
+
+---
+
+## **v7** API - Live Coding
+* 
+
+---
+
+## **v8** Mobile App - Live Coding
+* 
+
+---
