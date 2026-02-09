@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\PublicFilmController;
 
-Route::redirect('/', '/login');
+Route::get('/', [PublicFilmController::class, 'home'])->name('home');
 Route::get('/accueil', [PublicFilmController::class, 'home'])->name('public.home');
 
 Route::get('/films/{film}', [PublicFilmController::class, 'show'])->name('films.show');
@@ -15,9 +15,3 @@ Route::post('/admin/films', [FilmController::class, 'store'])->name('films.store
 Route::get('/admin/films/{film}/edit', [FilmController::class, 'edit'])->name('films.edit');
 Route::put('/admin/films/{film}', [FilmController::class, 'update'])->name('films.update');
 Route::delete('/admin/films/{film}', [FilmController::class, 'destroy'])->name('films.destroy');
-
-Auth::routes();
-
-Route::get('/home', function() {
-    return redirect()->route('films.index');
-})->name('home');

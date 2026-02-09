@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mx-auto" x-data="adminComponent()">
+<div class="mx-auto" id="admin-root">
     <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
         <div>
             <h1 class="text-2xl font-bold text-gray-800">
@@ -9,7 +9,7 @@
             </h1>
             <p class="text-sm text-gray-500">{{ __('films.titles.admin_subtitle') }}</p>
         </div>
-        <button @click="openModal()" class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all">
+        <button type="button" id="btnOpenCreateFilmModal" class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all">
             <i data-lucide="plus" class="size-4"></i>
             {{ __('films.buttons.add') }}
         </button>
@@ -22,15 +22,13 @@
                     <i data-lucide="search" class="size-4 text-gray-400"></i>
                 </div>
                 <input type="text" 
-                       x-model="search" 
-                       @input.debounce.300ms="fetchFilms()"
+                       id="adminSearch"
                        class="py-2 px-3 ps-10 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 text-gray-800" 
                        placeholder="{{ __('films.fields.search') }}">
             </div>
             
             <div class="w-full md:w-48">
                 <select id="indexCategorySelect" 
-                        @change="categorie_id = $event.target.value"
                         data-hs-select='{
                     "placeholder": "{{ __('films.fields.all_categories') }}",
                     "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
@@ -49,12 +47,10 @@
                         <option value="{{ $categorie->id }}">{{ $catName }}</option>
                     @endforeach
                 </select>
-                <input type="hidden" x-model="categorie_id">
             </div>
         </div>
         <div id="filmsTableWrapper" 
-             x-init="filmsTable = $el.innerHTML" 
-             x-html="filmsTable">
+             data-initialized="0">
             @include('partials.films-table')
         </div>
     </div>
