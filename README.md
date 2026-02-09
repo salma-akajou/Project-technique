@@ -33,6 +33,7 @@ style: |
 
 ---
 
+
 <!-- Contexte -->
 # Contexte
 ![2TUP](imgs/2_tup.png)
