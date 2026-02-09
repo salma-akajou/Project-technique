@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto">
-    <a href="{{ route('home') }}" class="inline-flex items-center gap-x-2 text-sm text-gray-500 hover:text-blue-600 mb-6 transition-colors">
+    <a href="{{ route('public.home') }}" class="inline-flex items-center gap-x-2 text-sm text-gray-500 hover:text-blue-600 mb-6 transition-colors">
         <i data-lucide="arrow-left" class="size-4"></i>
         {{ __('films.buttons.back_home') }}
     </a>
