@@ -8,6 +8,7 @@ use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
 use App\Services\FilmService;
 use App\Services\CategorieService;
+use Illuminate\Support\Facades\Gate;
 
 class FilmController extends Controller
 {
@@ -75,7 +76,7 @@ class FilmController extends Controller
 
     public function destroy(Film $film)
     {
-        \Illuminate\Support\Facades\Gate::authorize('delete-film');
+        Gate::authorize('delete-film');
         
         $this->filmService->delete($film);
 

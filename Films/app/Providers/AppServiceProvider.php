@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,12 +20,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        \Illuminate\Support\Facades\Gate::define('manage-films', function ($user) {
-            return true; // Tous les utilisateurs connectés peuvent voir/ajouter
+        Gate::define('manage-films', function ($user) {
+            return true;
         });
 
-        \Illuminate\Support\Facades\Gate::define('delete-film', function ($user) {
-            return $user->is_admin === true; // Seul l'admin peut supprimer
+        Gate::define('delete-film', function ($user) {
+            return $user->is_admin === true;
         });
     }
 }
