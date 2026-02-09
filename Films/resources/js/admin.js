@@ -7,6 +7,7 @@ export default () => ({
     filmId: null,
     film: { titre: '', directeur: '', description: '' },
     imagePreview: null,
+    
 
     init() {
         this.$watch('search', () => this.fetchFilms());
