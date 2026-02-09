@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Films</title>
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        [x-cloak] { display: none !important; }
         body { font-family: 'Inter', sans-serif; }
         .glass {
             background: rgba(255, 255, 255, 0.7);
@@ -25,7 +24,7 @@
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
                     <a href="/" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                        {{ config('app.name', 'Laravel') }}
+                        Films
                     </a>
                 </div>
 
@@ -55,16 +54,12 @@
                             <a href="{{ route('register') }}" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors">{{ __('Register') }}</a>
                         @endif
                     @else
-                        <div class="relative inline-flex" x-data="{ open: false }" @click.outside="open = false">
-                            <button @click="open = !open" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-x-1 focus:outline-none">
+                        <div class="relative inline-flex" data-user-menu>
+                            <button type="button" data-user-menu-button class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-x-1 focus:outline-none">
                                 {{ Auth::user()->name }}
-                                <svg class="size-4 transition-transform" :class="open ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                                <svg class="size-4 transition-transform" data-user-menu-icon xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                             </button>
-                            <div x-show="open" x-cloak 
-                                 x-transition:enter="transition ease-out duration-100"
-                                 x-transition:enter-start="transform opacity-0 scale-95"
-                                 x-transition:enter-end="transform opacity-100 scale-100"
-                                 class="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-1 z-[9999]">
+                            <div class="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-1 z-[9999] hidden" data-user-menu-dropdown>
                                 <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
