@@ -56,6 +56,7 @@ export default function initAdmin() {
         if (open) autoInitUI();
     };
 
+    
     const setImagePreview = (url) => {
         state.imagePreview = url;
         if (!el.imagePreviewWrapper || !el.imagePreview) return;

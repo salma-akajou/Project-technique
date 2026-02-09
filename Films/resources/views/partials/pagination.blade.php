@@ -19,6 +19,7 @@
         </a>
     @endif
 
+    
     <div class="flex items-center gap-x-1">
         {{-- Pagination Elements --}}
         @foreach ($elements as $element)

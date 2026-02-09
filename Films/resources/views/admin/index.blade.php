@@ -25,7 +25,6 @@
                        class="py-2 px-3 ps-10 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 text-gray-800" 
                        placeholder="{{ __('films.fields.search') }}">
             </div>
-            
             <div class="w-full md:w-48">
                 <select id="indexCategorySelect" 
                         data-hs-select='{

@@ -10,6 +10,7 @@
                 </button>
             </div>
 
+            
             <form id="filmForm" action="{{ route('films.store') }}" data-store-url="{{ route('films.store') }}" data-update-url-template="{{ url('/admin/films/:id') }}" method="POST" enctype="multipart/form-data" class="p-6 space-y-4">
                 @csrf
                 <div id="filmFormMethodContainer"></div>

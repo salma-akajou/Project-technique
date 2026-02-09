@@ -10,6 +10,7 @@
             </tr>
         </thead>
         
+        
         <tbody class="divide-y divide-gray-200">
             @foreach($films as $film)
             <tr class="hover:bg-gray-50 transition-colors">
