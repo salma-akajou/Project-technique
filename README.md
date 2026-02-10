@@ -41,7 +41,7 @@ style: |
 
 ## Exigences: Travail à faire
 
-### Développement de l'Application des films
+### Développement d'une application des films
 *   **Partie Publique:** Interface permettant aux visiteurs de consulter les films. Fonctionnalités : Recherche par titre, directeur, filtre par catégorie, pagination (6 éléments/page).
 *   **Partie Admin:** Tableau de bord sécurisé pour les opérations CRUD. Fonctionnalités : Modales pour ajout/édition, AJAX pour les mises à jour asynchrones.
 
