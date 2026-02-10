@@ -28,14 +28,22 @@ style: |
 ---
 
 <!-- Waterfall -->
-# La méthode Waterfall
-![Waterfall](imgs/Waterfall.png)
+# Plan : 
+**- Méthode Waterfall**
+**- Exigences: Travail à faire**
+**- Contexte: Projet de fin de formation**
+**- Analyse technique**
+**- Analyse : Analyse fonctionnelle**
+**- Conception**
+**- Versions**
+**- Versions (v1 - v8)**
+**- Conclusion**
 
 ---
 
-<!-- Choix du sujet -->
-# Choix du sujet
-**gestion des films**
+<!-- Waterfall -->
+# Méthode Waterfall
+![Waterfall](imgs/Waterfall.png)
 
 ---
 
@@ -77,7 +85,7 @@ style: |
 ---
 
 <!-- Fonctionnalités -->
-# Fonctionnalités 
+# Analyse : Analyse fonctionnelle 
 ![diagram use case](imgs/diagram_use_cases.png)
 
 ---
@@ -88,7 +96,7 @@ style: |
 
 ---
 
-## Versions
+## Versions (v1 - v8)
 
 | Version | Description | Branche |
 | :--- | :--- | :--- |
@@ -105,43 +113,45 @@ style: |
 
 <!-- Sujet de Live coding -->
 # Sujet de Live coding
-## **v1** Public Side - Live Coding
-* Creation du portfolio personnel
+## **v1 : Public Side**  
+*  **Live Coding :** Creation du portfolio personnel
 
 ---
 
-## **v2** Admin Side - Live Coding
-* Gestion des articles (CRUD)
+## **v2 : Admin Side**
+* **Live Coding:** Gestion des articles (CRUD)
 
 ---
 
-## **v3** Authentification / Authorization - Live Coding
-* 
+## **v3 : Authentification / Authorization** 
+* **Live Coding :**
 
 ---
 
-## **v4** SPA / AJAX - Live Coding
-* Un bouton “Ajouter” qui ouvre une modale pour créer un nouvel élément. <br>
-* Une barre de recherche filtrant des éléments par titre.
+## **v4 : SPA / AJAX** 
+* **Live Coding :** 
+  - Bouton “Ajouter” via modale
+  - Barre de recherche dynamique
 
 ---
 
-## **v5** SPA / Alpine.js - Live Coding
-* 
+## **v5 : SPA / Alpine.js**
+* **Live Coding :** 
+---
+
+## **v6 : Spatie / Authorization**
+* **Live Coding :**
 
 ---
 
-## **v6** Spatie / Authorization - Live Coding
-* 
+## **v7 : API** 
+* **Live Coding :** 
 
 ---
 
-## **v7** API - Live Coding
-* 
+## **v8 : Mobile App**
+* **Live Coding :** 
 
 ---
 
-## **v8** Mobile App - Live Coding
-* 
-
----
+## Conclusion
