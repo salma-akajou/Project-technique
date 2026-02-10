@@ -90,6 +90,7 @@
                     @enderror
                 </div>
 
+                
                 <div>
                     <label class="block text-sm font-semibold mb-1.5">{{ __('films.fields.image') }}</label>
                     <div x-show="imagePreview" class="mb-3">
