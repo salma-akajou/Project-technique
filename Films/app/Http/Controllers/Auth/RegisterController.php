@@ -28,7 +28,18 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/films';
+    protected $redirectTo = '/accueil';
+
+    protected function redirectTo(): string
+    {
+        $user = auth()->user();
+
+        if ($user && $user->hasAnyRole(['admin', 'editor'])) {
+            return '/admin/films';
+        }
+
+        return '/accueil';
+    }
 
     /**
      * Create a new controller instance.
