@@ -20,17 +20,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin User',
             'email' => 'admin@films.com',
             'password' => Hash::make('password'),
-            'is_admin' => true,
         ]);
 
         User::factory()->create([
             'name' => 'Rédacteur User',
             'email' => 'redacteur@films.com',
             'password' => Hash::make('password'),
-            'is_admin' => false,
         ]);
 
         $this->call([
+            RolesAndPermissionsSeeder::class,
             UserSeeder::class,
             CategorieSeeder::class,
             FilmSeeder::class,

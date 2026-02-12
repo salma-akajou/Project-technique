@@ -35,11 +35,11 @@
                             <span class="text-sm text-gray-700">
                                 Bonjour,
                             </span>
-                            @if (Auth::user()->is_admin)
+                            @if (Auth::user()->hasRole('admin'))
                                 <span class="inline-flex items-center rounded-full bg-red-600 px-2.5 py-0.5 text-xs font-semibold text-white">
                                     Admin
                                 </span>
-                            @else
+                            @elseif (Auth::user()->hasRole('editor'))
                                 <span class="inline-flex items-center rounded-full bg-sky-600 px-2.5 py-0.5 text-xs font-semibold text-white">
                                     Rédacteur
                                 </span>
