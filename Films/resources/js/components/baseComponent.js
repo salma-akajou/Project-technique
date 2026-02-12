@@ -1,4 +1,4 @@
-export const baseLogic = (service) => ({
+export const baseLogic = () => ({
     isLoading: false,
     error: null,
 
@@ -22,5 +22,22 @@ export const baseLogic = (service) => ({
             if (window.HSStaticMethods) window.HSStaticMethods.autoInit();
             if (window.createIcons) window.createIcons({ icons: window.icons });
         });
+    }
+});
+
+export const baseManager = () => ({
+    search: '',
+    entityTable: '',
+    isOpen: false,
+    editMode: false,
+
+    openModalBase(id = null) {
+        this.editMode = !!id;
+        this.isOpen = true;
+        this.reinitUI?.();
+    },
+
+    closeModalBase() {
+        this.isOpen = false;
     }
 });
