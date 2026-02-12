@@ -54,8 +54,8 @@
             </div>
         </div>
         <div id="filmsTableWrapper" 
-             x-init="filmsTable = $el.innerHTML" 
-             x-html="filmsTable">
+             x-init="entityTable = $el.innerHTML" 
+             x-html="entityTable">
             @include('partials.films-table')
         </div>
     </div>

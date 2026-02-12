@@ -1,4 +1,4 @@
-import { baseLogic } from './baseComponent.js';
+import { baseLogic, baseManager } from './baseComponent.js';
 
 const filmService = {
     async getAll(params) {
@@ -21,15 +21,19 @@ const filmService = {
 
 
 export default () => ({
-    ...baseLogic(filmService),
-    search: '',
+    ...baseLogic(),
+    ...baseManager(),
     categorie_id: 'all',
-    filmsTable: '',
-    isOpen: false,
-    editMode: false,
     filmId: null,
     film: { titre: '', directeur: '', description: '' },
     imagePreview: null,
+
+    get filmsTable() {
+        return this.entityTable;
+    },
+    set filmsTable(val) {
+        this.entityTable = val;
+    },
 
     init() {
         this.$watch('search', () => this.fetchFilms());
@@ -45,14 +49,14 @@ export default () => ({
                 page
             }),
             (res) => {
-                this.filmsTable = res.data;
+                this.entityTable = res.data;
                 this.reinitUI();
             }
         );
     },
 
     async openModal(id = null) {
-        this.editMode = !!id;
+        this.openModalBase(id);
         this.filmId = id;
         this.imagePreview = null;
 
@@ -79,7 +83,7 @@ export default () => ({
     },
 
     closeModal() {
-        this.isOpen = false;
+        this.closeModalBase();
     },
 
     updateHSSelect(values) {
