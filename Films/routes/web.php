@@ -9,13 +9,13 @@ Route::get('/accueil', [PublicFilmController::class, 'home'])->name('public.home
 
 Route::get('/films/{film}', [PublicFilmController::class, 'show'])->name('films.show');
 
-Route::middleware(['auth', 'role:admin|editor'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/admin/films', [FilmController::class, 'index'])->name('films.index');
     Route::get('/admin/films/create', [FilmController::class, 'create'])->name('films.create');
     Route::post('/admin/films', [FilmController::class, 'store'])->name('films.store');
     Route::get('/admin/films/{film}/edit', [FilmController::class, 'edit'])->name('films.edit');
     Route::put('/admin/films/{film}', [FilmController::class, 'update'])->name('films.update');
-    Route::delete('/admin/films/{film}', [FilmController::class, 'destroy'])->middleware('permission:films.delete')->name('films.destroy');
+    Route::delete('/admin/films/{film}', [FilmController::class, 'destroy'])->name('films.destroy');
 });
 
 Auth::routes();

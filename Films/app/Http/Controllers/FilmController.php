@@ -22,6 +22,8 @@ class FilmController extends Controller
     
     public function index(Request $request)
     {
+        $this->authorize('films.view');
+
         $filters = $request->only(['search', 'categorie_id']);
         $films = $this->filmService->getAll($filters); 
         $categories = $this->categorieService->getAll();
@@ -36,12 +38,16 @@ class FilmController extends Controller
 
     public function create()
     {
+        $this->authorize('films.create');
+
         $categories = $this->categorieService->getAll();
         return view('admin.create', compact('categories'));
     }
 
     public function store(StoreFilmRequest $request)
     {
+        $this->authorize('films.create');
+
         $validated = $request->validated();
         $validated['user_id'] = auth()->id() ?? 1;
         $this->filmService->create($validated);
@@ -52,6 +58,8 @@ class FilmController extends Controller
 
     public function edit(Film $film)
     {
+        $this->authorize('films.edit');
+
         $categories = $this->categorieService->getAll();
         
         if (request()->ajax()) {
@@ -66,6 +74,8 @@ class FilmController extends Controller
 
     public function update(UpdateFilmRequest $request, Film $film)
     {
+        $this->authorize('films.edit');
+
         $validated = $request->validated();
         $this->filmService->update($film, $validated);
 
@@ -75,6 +85,8 @@ class FilmController extends Controller
 
     public function destroy(Film $film)
     {
+        $this->authorize('films.delete');
+
         $this->filmService->delete($film);
 
         return redirect()->route('films.index')
