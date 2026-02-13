@@ -9,10 +9,12 @@
             </h1>
             <p class="text-sm text-gray-500">{{ __('films.titles.admin_subtitle') }}</p>
         </div>
+        @can('films.create')
         <button @click="openModal()" class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 shadow-md transition-all">
             <i data-lucide="plus" class="size-4"></i>
             {{ __('films.buttons.add') }}
         </button>
+        @endcan
 </div>
 
 

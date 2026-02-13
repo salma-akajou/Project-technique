@@ -18,6 +18,7 @@ class RolesAndPermissionsSeeder extends Seeder
         app(PermissionRegistrar::class)->forgetCachedPermissions();
 
         $permissions = [
+            'films.view',
             'films.create',
             'films.edit',
             'films.delete',
@@ -36,6 +37,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $editorPermissions = Permission::query()
             ->whereIn('name', [
+                'films.view',
                 'films.create',
                 'films.edit',
             ])
