@@ -5,26 +5,26 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Models\Categorie;
 use App\Services\CategorieService;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CategorieServiceTest extends TestCase
 {
-    use DatabaseTransactions;
+    use RefreshDatabase;
 
     protected CategorieService $service;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->service = new CategorieService();
+        $this->service = new CategorieService(new Categorie());
     }
 
     public function test_it_can_get_all_categories()
     {
-        // Act
+        Categorie::factory()->count(3)->create();
+
         $categories = $this->service->getAll();
 
-        // Assert
-        $this->assertGreaterThan(0, $categories->count());
+        $this->assertEquals(3, $categories->count());
     }
 }
